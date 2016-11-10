@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RailsMisterCocktail</title>
+  <title>Mister Cocktail</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
@@ -12,7 +12,10 @@
 </head>
 
 <body>
-  <%= render 'layouts/navbar' %>
-  <%= yield %>
+  <div class="site">
+    <%= render 'partials/navbar' %>
+    <main class="container site-content"><%= yield %></main>
+    <%= render 'partials/footer' %>
+  </div>
 </body>
 </html>

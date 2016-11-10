@@ -1,0 +1,23 @@
+<h1><%= @cocktail.name %></h1>
+
+<h4><em>Doses</em></h4>
+
+<div>
+  <%= render 'doses/new' %>
+</div>
+
+<div>
+  <% @cocktail.doses.each do |dose| %>
+    <% if dose.persisted? %>
+      <div class="product">
+        <div class='product-body'>
+          <p>
+            <strong><%= dose.description %></strong>
+            <em><%= dose.ingredient.name %></em>
+            <%= link_to "Delete", cocktail_dose_path(@cocktail.id, dose.id), method: :delete %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

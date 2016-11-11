@@ -1,11 +1,15 @@
-<h2>My cocktails</h2>
-
-<p>
-  <%= link_to "Add cocktail", new_cocktail_path %>
-</p>
-
-<% @cocktails.each do |cocktail| %>
-  <%= link_to cocktail_path(cocktail.id) do %>
-  <h4><%= cocktail.name %></h4>
-  <% end %>
-<% end %>
+<div class="cocktails">
+  <h2>My cocktails</h2>
+  <p>
+    <%= link_to "Add cocktail", new_cocktail_path %>
+  </p>
+  <div class="container">
+    <% @cocktails.each do |cocktail| %>
+    <div class="cocktail">
+      <%= link_to cocktail, class: "link-decoration-none" do %>
+      <%= render 'partials/cocktail_item', cocktail: cocktail %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

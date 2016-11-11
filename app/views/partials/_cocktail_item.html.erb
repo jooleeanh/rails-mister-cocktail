@@ -1,0 +1,17 @@
+<div class="product">
+  <div class='product-upvote'>
+    <div class="product-arrow"></div>
+    <div class='product-count'><%= rand(0..450) %></div>
+  </div>
+  <%= cl_image_tag cocktail.photo.path, class: "product-image", width: 40, height: 40, crop: :fill %>
+  <div class='product-body'>
+    <h3><%= cocktail.name %></h3>
+  </div>
+  <ul class="list-inline product-controls hidden-sm hidden-xs">
+    <% ["fa fa-heart", "fa fa-share", "fa fa-star"].each do |fa| %>
+    <li>
+      <object><a href=""><i class=<%= fa %>></i></a></object>
+    </li>
+    <% end %>
+  </ul>
+</div>

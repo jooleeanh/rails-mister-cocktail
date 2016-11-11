@@ -1,4 +1,11 @@
-<h1><%= @cocktail.name %></h1>
+<h1>
+  <%= @cocktail.name %>
+  <small><%= link_to "Edit", edit_cocktail_path(@cocktail.id) %></small>
+</h1>
+
+<% if @cocktail.photo? %>
+  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 
 <h4><em>Doses</em></h4>
 
@@ -6,7 +13,7 @@
   <%= render 'doses/new' %>
 </div>
 
-<div>
+<div class="container">
   <% @cocktail.doses.each do |dose| %>
     <% if dose.persisted? %>
       <div class="product">

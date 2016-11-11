@@ -8,14 +8,16 @@
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
   <div class="site">
     <%= render 'partials/navbar' %>
-    <main class="container site-content"><%= yield %></main>
+    <div class="container site-content"><%= yield %></div>
     <%= render 'partials/footer' %>
   </div>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= cloudinary_js_config %>
 </body>
 </html>

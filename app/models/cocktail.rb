@@ -1,5 +1,7 @@
 class Cocktail < ApplicationRecord
   has_many :doses, dependent: :destroy
   has_many :ingredients, through: :doses
+  validates :origin, presence: true
   validates :name, presence: true, uniqueness: true
+  has_attachment :photo
 end

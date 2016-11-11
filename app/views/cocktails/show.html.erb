@@ -1,30 +1,50 @@
-<h1>
-  <%= @cocktail.name %>
-  <small><%= link_to "Edit", edit_cocktail_path(@cocktail.id) %></small>
-</h1>
+<div class="cocktail-view">
 
-<% if @cocktail.photo? %>
-  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
-<% end %>
+  <div class="cocktail-item">
+    <div class="cocktail-title">
+      <h1>
+        <%= @cocktail.name %>
+        <small><%= link_to "Edit", edit_cocktail_path(@cocktail.id) %></small>
+      </h1>
+    </div>
+  </div>
 
-<h4><em>Doses</em></h4>
+  <div class="cocktail-item">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <div class="cocktail-img">
+          <% if @cocktail.photo? %>
+          <%= cl_image_tag @cocktail.photo.path, width: 300, height: 300, crop: :scale, radius: 500 %>
+          <% end %>
+        </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+          <div class="cocktail-body">
 
-<div>
-  <%= render 'doses/new' %>
-</div>
+            <div class="cocktail-subtitle">
+              Doses
+            </div>
 
-<div class="container">
-  <% @cocktail.doses.each do |dose| %>
-    <% if dose.persisted? %>
-      <div class="product">
-        <div class='product-body'>
-          <p>
-            <strong><%= dose.description %></strong>
-            <em><%= dose.ingredient.name %></em>
-            <%= link_to "Delete", dose_path(@cocktail.id, dose.id), method: :delete %>
-          </p>
+            <div class="list-group">
+              <% @cocktail.doses.each do |dose| %>
+                <% if dose.persisted? %>
+                  <button type="button" class="list-group-item dose">
+                    <span class="dose-desc"><em><%= dose.description.strip %></em></span>
+                    <span class="dose-ing"><strong><%= dose.ingredient.name %></strong></span>
+                    <span class="dose-delete"><%= link_to "Delete", dose_path(@cocktail.id, dose.id), method: :delete %></span>
+                  </button>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="dose-new">
+              <%= render 'doses/new' %>
+            </div>
+
+          </div>
         </div>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>

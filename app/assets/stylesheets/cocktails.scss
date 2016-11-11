@@ -8,3 +8,68 @@
 .cocktail {
   height: 80px;
 }
+.cocktail-view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cocktail-item {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  text-align: center;
+}
+.cocktail-img {
+  border-radius: 50%;
+  text-align: center;
+  img {
+    border-radius: 50%;
+    box-shadow: 8px 8px 10px #aaa;
+  }
+}
+.cocktail-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  padding-bottom: 50px;
+  width: 100%;
+}
+.cocktail-subtitle {
+  padding: 20px;
+  font-style: italic;
+  font-size: 2em;
+}
+
+@media (max-width: $screen-md) {
+  .cocktail-title {
+    text-align: left;
+  }
+}
+
+@media (max-width: $screen-xs) {
+  .cocktail-title {
+    text-align: center;
+  }
+}
+
+.dose {
+  display: flex;
+  margin-right: 50px;
+  width: 100%;
+  justify-content: space-between;
+}
+.dose-new {
+  width: 100%;
+  .container {
+    width: 100%;
+  }
+}
+.dose-desc {
+
+}
+.dose-ing {
+  margin-left: 5px;
+}
+.dose-delete a {
+  align-self: flex-end;
+}

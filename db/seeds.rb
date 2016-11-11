@@ -2,7 +2,13 @@ require 'open-uri'
 require 'json'
 
 puts "Deleting previous seed ..."
-Ingredient.destroy_all
+puts "- Deleting doses ..."
+Dose.destroy_all rescue puts "No previous seed."
+puts "- Deleting ingredients ..."
+Ingredient.destroy_all rescue puts "No previous seed."
+puts "- Deleting cocktails ..."
+Cocktail.destroy_all rescue puts "No previous seed."
+
 
 puts "Parsing thecocktaildb.com for ingredients..."
 url_ingredients = "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"

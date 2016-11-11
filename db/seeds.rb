@@ -5,8 +5,8 @@ def delete_previous_seed
   puts "Deleting previous seed ..."
   puts "- Deleting doses ..."
   Dose.destroy_all rescue puts "No previous seed."
-  # puts "- Deleting ingredients ..."
-  # Ingredient.destroy_all rescue puts "No previous seed."
+  puts "- Deleting ingredients ..."
+  Ingredient.destroy_all rescue puts "No previous seed."
   puts "- Deleting cocktails ..."
   Cocktail.destroy_all rescue puts "No previous seed."
 end
@@ -73,7 +73,7 @@ def create_cocktail_doses
 end
 
 delete_previous_seed
-# create_ingredients(parse_ingredients)
+create_ingredients(parse_ingredients)
 create_cocktails(parse_cocktails)
 create_cocktail_doses
 puts "\nSeeding done!"

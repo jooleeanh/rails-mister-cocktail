@@ -30,8 +30,10 @@
               <% @cocktail.doses.each do |dose| %>
                 <% if dose.persisted? %>
                   <button type="button" class="list-group-item dose">
-                    <span class="dose-desc"><em><%= dose.description.strip %></em></span>
-                    <span class="dose-ing"><strong><%= dose.ingredient.name %></strong></span>
+                    <span>
+                      <em class="dose-desc"><%= dose.description.strip %></em>
+                      <strong class="dose-ing"><%= dose.ingredient.name %></strong>
+                    </span>
                     <span class="dose-delete"><%= link_to "Delete", dose_path(@cocktail.id, dose.id), method: :delete %></span>
                   </button>
                 <% end %>

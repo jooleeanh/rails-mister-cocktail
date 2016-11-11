@@ -10,13 +10,13 @@
     <!-- Search form -->
     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
+      <button type="submit" class="navbar-wagon-search-btn" tabindex="-1">
         <i class="fa fa-search"></i>
       </button>
     </form>
 
     <!-- Notification -->
-    <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+    <%= link_to "#",  tabindex:-1, class: "navbar-wagon-item navbar-wagon-link" do %>
       <div class="badge-container">
         <i class="fa fa-envelope-o"></i>
         <div class="badge badge-blue">3</div>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <%= link_to "Add cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

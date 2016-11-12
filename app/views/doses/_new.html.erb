@@ -3,14 +3,14 @@
   <p>Add dose</p>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <%= f.input :description %>
       </div>
-      <div class="col-sm-12">
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <%= f.association :ingredient %>
       </div>
-      <div class="col-sm-12">
-        <%= f.button :submit %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <%= f.button :submit, class: "btn-wide" %>
       </div>
     </div>
     <% end %>

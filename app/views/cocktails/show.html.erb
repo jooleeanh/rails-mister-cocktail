@@ -15,7 +15,10 @@
         <div class="col-xs-12 col-md-4">
           <div class="cocktail-img">
           <% if @cocktail.photo? %>
-          <%= cl_image_tag @cocktail.photo.path, width: 300, height: 300, crop: :scale, radius: 500 %>
+          <% parts = @cocktail.photo.path.split("/") %>
+          <% folder = "/MrCocktail%20-%20Cocktails/" %>
+          <% path = parts[0] + folder + parts[1] %>
+          <%= cl_image_tag(path, width: 300, height: 300, crop: :scale, radius: 500) %>
           <% end %>
         </div>
         </div>
@@ -33,7 +36,12 @@
                     <span>
                       <em><%= dose.description.strip %></em>
                       <strong class="small-margin-left"><%= dose.ingredient&.name %></strong>
-                      <%= cl_image_tag dose.ingredient&.photo&.path, class: "ingredient-img", width: 50, height: 50, crop: :scale, radius: 500 %>
+                      <%# if dose.ingredient&.photo&.nil? == false %>
+                        <%# parts = dose.ingredient.photo.path.split("/") %>
+                        <%# folder = "/MrCocktail - Ingredients/" %>
+                        <%# path = parts[0] + folder + parts[1] %>
+                        <%#= cl_image_tag(path, class: "ingredient-img", width: 50, height: 50, crop: :scale, radius: 500) %>
+                      <%# end %>
                     </span>
                     <span class="dose-delete"><%= link_to "Delete", dose, method: :delete %></span>
                   </button>

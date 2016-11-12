@@ -11,7 +11,10 @@
   <% if cocktail.photo.nil? %>
   <%= image_tag "cocktail.svg", class: "product-image product-image-placeholder" %>
   <% else %>
-    <%= cl_image_tag cocktail.photo.path, class: "product-image", width: 50, height: 50, crop: :fill %>
+  <% parts = cocktail.photo.path.split("/") %>
+  <% folder = "/MrCocktail%20-%20Cocktails/" %>
+  <% path = parts[0] + folder + parts[1] %>
+  <%= cl_image_tag(path, width: 50, height: 50, crop: :fill, class: "product-image") %>
   <% end %>
   <div class='product-body'>
     <h3><%= cocktail.name %></h3>

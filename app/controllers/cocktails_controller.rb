@@ -38,7 +38,7 @@ class CocktailsController < ApplicationController
 
   def sample
     Cocktail.all.update_all(show: false)
-    cocktails = Cocktail.all.sample(30)
+    cocktails = Cocktail.all.select { |c| c.photo.nil? == false }.sample(10)
     cocktails.each do |cocktail|
       cocktail.show = true
       cocktail.save

@@ -31,10 +31,11 @@
                 <% if dose.persisted? %>
                   <button type="button" class="list-group-item dose">
                     <span>
-                      <em class="dose-desc"><%= dose.description.strip %></em>
-                      <strong class="dose-ing"><%= dose.ingredient.name %></strong>
+                      <em><%= dose.description.strip %></em>
+                      <strong class="small-margin-left"><%= dose.ingredient&.name %></strong>
+                      <%= cl_image_tag dose.ingredient&.photo&.path, class: "ingredient-img", width: 50, height: 50, crop: :scale, radius: 500 %>
                     </span>
-                    <span class="dose-delete"><%= link_to "Delete", dose_path(@cocktail.id, dose.id), method: :delete %></span>
+                    <span class="dose-delete"><%= link_to "Delete", dose, method: :delete %></span>
                   </button>
                 <% end %>
               <% end %>

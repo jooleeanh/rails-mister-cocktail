@@ -1,11 +1,14 @@
 .product {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   transition: all 0.15s ease;
+  background:rgb(246, 246, 246);
 }
-
+.product-user {
+  background:rgb(208, 244, 203);
+}
 /* Body design */
 .product-body {
   flex: 1 1 auto;
@@ -25,10 +28,12 @@
 .product-image {
   border-radius: 10px;
   margin-right: 20px;
-  width: 50px;
+  height: 50px;
 }
-.product-image-invisible {
-  opacity: 0;
+.product-image-placeholder {
+  opacity: 0.2;
+  height: 50px;
+  width: 50px;
 }
 
 /* Upvote design */
@@ -80,8 +85,11 @@
 
 /* Hover effects */
 .product:hover {
-  background: #f7f7fa;
+  background: rgb(237, 236, 236);
   cursor: pointer;
+}
+.product-user:hover {
+  background:rgb(198, 235, 192);
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
   color: #5898f1;

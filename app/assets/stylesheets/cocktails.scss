@@ -4,9 +4,11 @@
 
 .cocktails {
   padding: 20px 0;
+  h2 {
+    margin-bottom: 35px;
+  }
 }
 .cocktail {
-  height: 80px;
 }
 .cocktail-view {
   height: 100%;
@@ -51,6 +53,12 @@
     text-align: center;
   }
 }
+.small-margin-left {
+  margin-left: 5px;
+}
+.big-margin-left {
+
+}
 
 .dose {
   display: flex;
@@ -64,12 +72,10 @@
     width: 100%;
   }
 }
-.dose-desc {
-
-}
-.dose-ing {
-  margin-left: 5px;
-}
 .dose-delete a {
   align-self: flex-end;
+}
+.ingredient-img {
+  width: 30px;
+  height: 30px;
 }

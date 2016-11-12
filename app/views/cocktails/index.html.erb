@@ -1,5 +1,8 @@
 <div class="cocktails">
-  <h2>My cocktails</h2>
+  <h2>
+    My cocktails
+    <small class="small-margin-left"><%= link_to "Shuffle", sample_cocktails_path, method: :post %></small>
+  </h2>
   <div class="container">
     <% @cocktails.each do |cocktail| %>
     <div class="cocktail">

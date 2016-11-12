@@ -1,9 +1,17 @@
 
 <div class="container">
   <p>Add dose</p>
-<%= simple_form_for [@cocktail, @dose], html: { class: "form-inline form-for" }, defaults: { input_html: { class: "input" } } do |f| %>
-<%= f.input :description %>
-<%= f.association :ingredient %>
-<%= f.button :submit %>
-<% end %>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= f.input :description %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.association :ingredient %>
+      </div>
+      <div class="col-sm-12">
+        <%= f.button :submit %>
+      </div>
+    </div>
+    <% end %>
 </div>

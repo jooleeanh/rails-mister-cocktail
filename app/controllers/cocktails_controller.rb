@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.shown.user_first_alphabet
   end
 
   def show
@@ -34,6 +34,16 @@ class CocktailsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def sample
+    Cocktail.all.update_all(show: false)
+    cocktails = Cocktail.all.sample(30)
+    cocktails.each do |cocktail|
+      cocktail.show = true
+      cocktail.save
+    end
+    redirect_to cocktails_path
   end
 
   private

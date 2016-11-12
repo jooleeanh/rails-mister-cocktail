@@ -1,14 +1,23 @@
-<div class="product">
+
+  <% if cocktail.origin == 'user' %>
+    <div class='product product-user'>
+  <% else %>
+    <div class="product">
+  <% end %>
   <div class='product-upvote'>
     <div class="product-arrow"></div>
     <div class='product-count'><%= rand(0..450) %></div>
   </div>
   <% if cocktail.photo.nil? %>
+  <%= image_tag "cocktail.svg", class: "product-image product-image-placeholder" %>
   <% else %>
-  <%= cl_image_tag cocktail.photo.path, class: "product-image", width: 50, height: 50, crop: :fill %>
+    <%= cl_image_tag cocktail.photo.path, class: "product-image", width: 50, height: 50, crop: :fill %>
   <% end %>
   <div class='product-body'>
     <h3><%= cocktail.name %></h3>
+    <p>
+      <%= cocktail.ingredients.all.map {|i| i.name }.join(" - ") -%>
+    </p>
   </div>
   <ul class="list-inline product-controls hidden-sm hidden-xs">
     <% ["fa fa-heart", "fa fa-share", "fa fa-star"].each do |fa| %>

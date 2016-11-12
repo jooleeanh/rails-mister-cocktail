@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Mister Cocktail - JooLeeAnh @LeWagon](https://rails-cocktail-jooleeanh.herokuapp.com/cocktails)
 
-Things you may want to cover:
+Webpage running on Ruby on Rails and Heroku.
+Dynamic interface to view and create cocktails.
 
-* Ruby version
+Available features:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* View cocktails from [TheCocktailDatabase](http://www.thecocktaildb.com/).
+* See different cocktails from the database with shuffle.
+* Create your own cocktail with image upload.
+* Add doses to any cocktail using ingredient dropdown.
+* Responsive interface featuring different displays for phones, tablets, and computers.

@@ -167,7 +167,7 @@ def get_picture(filepath, photo_url, missing_photos)
 end
 
 def set_picture(instance, folder, photo_url, missing_photos)
-  filepath = "app/assets/images/#{folder}/#{instance.name}.png"
+  filepath = "#{folder}/#{instance.original_id}.png"
   if instance.db_photo?
     instance.db_photo = filepath
   else
@@ -235,6 +235,17 @@ def resize_images_prompt
   answers = prompt_action?("Resize images of", {i: Ingredient, c: Cocktail})
   resize_all(Ingredient) if answers[:i]
   resize_all(Cocktail) if answers[:c]
+end
+
+Cocktail.all.each do |c|
+  path = "app/assets/images/cocktails/#{c.original_id}.png"
+  if File.exist? File.expand_path path
+    c.db_photo = "cocktails/#{c.original_id}.png"
+    c.save
+  else
+    c.db_photo = nil
+    c.save
+  end
 end
 
 actions = {delete: "delete instances", create: "create instances", resize: "resize images"}

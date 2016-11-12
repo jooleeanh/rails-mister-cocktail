@@ -30,4 +30,15 @@
 
 .btn-wide {
   width: 100%;
+  // margin-top: 27px;
 }
+@media (min-width: $screen-md) {
+  .btn-wide {
+    margin-top: 27px;
+  }
+}
+// @media (max-width: $screen-xs) {
+//   .btn-wide {
+//     margin-top: 27px;
+//   }
+// }

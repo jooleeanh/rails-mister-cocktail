@@ -20,6 +20,7 @@
   flex-direction: row;
   padding-top: 30px;
   text-align: center;
+  justify-content: center;
 }
 .cocktail-img {
   // border-radius: 50%;
@@ -41,18 +42,16 @@
   font-style: italic;
   font-size: 2em;
 }
+.cocktail-title {
+  margin-left: 30px;
+}
 
-@media (max-width: $screen-md) {
-  .cocktail-title {
-    text-align: left;
+@media (min-width: $screen-md) {
+  .cocktail-item {
+    justify-content: flex-start;
   }
 }
 
-@media (max-width: $screen-xs) {
-  .cocktail-title {
-    text-align: center;
-  }
-}
 .small-margin-left {
   margin-left: 5px;
 }

@@ -16,6 +16,7 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = Cocktail.new(cocktail_params)
     @cocktail.origin = "user"
+    @cocktail.show = true
     if @cocktail.save
       redirect_to cocktail_path(@cocktail.id)
     else
@@ -37,7 +38,7 @@ class CocktailsController < ApplicationController
   end
 
   def sample
-    Cocktail.all.update_all(show: false)
+    Cocktail.where.not(origin: "user").update_all(show: false)
     cocktails = Cocktail.all.select { |c| c.db_photo.nil? == false }.sample(10)
     cocktails.each do |cocktail|
       cocktail.show = true

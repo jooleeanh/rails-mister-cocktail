@@ -8,10 +8,12 @@
     <div class="product-arrow"></div>
     <div class='product-count'><%= cocktail.votes %></div>
   </div>
-  <% if cocktail.db_photo.nil? %>
-  <%= image_tag "cocktail.svg", class: "product-image product-image-placeholder" %>
-  <% else %>
+  <% if cocktail.photo? %>
+  <%= cl_image_tag(cocktail.photo.path, width: 50, height: 50, crop: :fill, class: "product-image") %>
+  <% elsif cocktail.db_photo? %>
   <%= image_tag(cocktail.db_photo, width: 50, height: 50, crop: :fill, class: "product-image") %>
+  <% else %>
+    <%= image_tag "cocktail.svg", class: "product-image product-image-placeholder" %>
   <% end %>
   <div class='product-body'>
     <h3><%= cocktail.name %></h3>

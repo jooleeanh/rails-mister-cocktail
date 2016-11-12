@@ -16,6 +16,8 @@
           <div class="cocktail-img">
           <% if @cocktail.db_photo? %>
             <%= image_tag(@cocktail.db_photo, width: 300, height: 300, crop: :scale, radius: 500) %>
+          <% elsif @cocktail.photo? %>
+            <%= cl_image_tag(@cocktail.photo.path, width: 300, height: 300, crop: :scale, radius: 500) %>
           <% else %>
             <%= image_tag "cocktail.svg", width: 300, height: 300, crop: :scale, radius: 500 %>
           <% end %>

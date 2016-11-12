@@ -3,9 +3,10 @@ require 'json'
 require 'colorize'
 
 def prompt_actions?(actions)
+  puts "\nActions will be executed after all are answered)".light_black
   answers = {}
   actions.each do |k, action|
-    print "\nWould you like to ".light_cyan + action.upcase.light_red + "? [y/n] ".light_cyan
+    print "Would you like to ".light_cyan + action.upcase.light_red + "? [y/n] ".light_cyan
     answer = STDIN.gets.chomp
     answers[k] = (answer == "y")
   end
@@ -239,4 +240,4 @@ end
 actions = {delete: "delete instances", create: "create instances", resize: "resize images"}
 
 execute_actions(prompt_actions?(actions))
-puts "\nSeeding done!".green
+puts "\nSeeding done!\n".green
